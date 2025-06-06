@@ -54,6 +54,16 @@ prefect deployment run 'Agentic Document Processing/agentic-doc-pipeline'
 python flows/s3_to_snowflake.py
 ```
 
+## Example Output
+
+The pipeline converts documents into rich markdown with metadata and stores structured results in Snowflake:
+
+### Extracted Content
+![Landing AI Extraction](screenshots/extracted_content.png)
+
+### Snowflake Results
+![Snowflake Table Output](screenshots/table_output.png)
+
 ## Snowflake Schema
 
 ```sql
