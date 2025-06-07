@@ -19,7 +19,6 @@ S3 Documents → Landing AI Agentic API → Structured JSON → Snowflake
      └──────────── Prefect Orchestration (Hourly) ───────────┘
 ```
 
-
 ## 🛠️ Prerequisites
 
 - macOS with Homebrew installed
@@ -151,18 +150,23 @@ Each document is transformed into structured JSON with full content preservation
 ```json
 {
   "markdown": "# Complete document content as markdown",
-  "chunks": [{
-    "text": "Document segment content",
-    "chunk_type": "table|paragraph|list|header",
-    "grounding": [{
-      "page": 1,
-      "box": {"l": 100, "t": 200, "r": 300, "b": 400}
-    }]
-  }]
+  "chunks": [
+    {
+      "text": "Document segment content",
+      "chunk_type": "table|paragraph|list|header",
+      "grounding": [
+        {
+          "page": 1,
+          "box": { "l": 100, "t": 200, "r": 300, "b": 400 }
+        }
+      ]
+    }
+  ]
 }
 ```
 
 **What You Get:**
+
 - Full document content as clean markdown text
 - Document segments with type classification
 - Exact spatial coordinates for each element
@@ -171,10 +175,10 @@ Each document is transformed into structured JSON with full content preservation
 ## 📸 Example Results
 
 ![Landing AI Extraction](screenshots/extracted_content.png)
-*Document content parsed and structured by Landing AI*
+_Document content parsed and structured by Landing AI_
 
 ![Snowflake Table Output](screenshots/table_output.png)
-*Parsed documents stored in Snowflake for querying*
+_Parsed documents stored in Snowflake for querying_
 
 ## 💾 Data Pipeline
 
@@ -199,7 +203,7 @@ FROM AI.AGENTIC_DOC_EXTRACTION.DOCS
 WHERE PROCESS_DATE >= CURRENT_DATE();
 
 -- Query specific document segments
-SELECT 
+SELECT
     FILE_NAME,
     chunk.value:text::string as segment_text,
     chunk.value:chunk_type::string as segment_type
@@ -217,12 +221,12 @@ WHERE chunk.value:chunk_type = 'table';
 def extract_document_content(file_content: bytes, file_key: str) -> Dict[str, Any]:
     """Parse document content using Landing AI's agentic-doc."""
     from agentic_doc.parse import parse
-    
+
     # Write to temp file (required by API)
     with tempfile.NamedTemporaryFile(suffix=f"_{file_key}") as temp_file:
         temp_file.write(file_content)
         results = parse(temp_file.name)
-    
+
     # Transform parsed content to JSON format
     return {
         "data": {
@@ -242,11 +246,13 @@ def extract_document_content(file_content: bytes, file_key: str) -> Dict[str, An
 ## 🚀 Why This Matters
 
 Traditional document processing requires:
+
 - Custom parsers for each document type
 - Constant maintenance as formats change
 - Manual intervention for edge cases
 
 Landing AI's agentic approach:
+
 - **One API, Any Document**: No templates or configuration needed
 - **Self-Improving**: AI adapts to new document types automatically
 - **Production Scale**: Process thousands of documents reliably
