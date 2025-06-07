@@ -19,10 +19,18 @@ ${cyan}███████║██║  ███╗█████╗  ██
 ${teal}██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║   ██║██║         ██║  ██║██║   ██║██║     
 ${green}██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║   ██║╚██████╗    ██████╔╝╚██████╔╝╚██████╗
 ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝    ╚═════╝  ╚═════╝  ╚═════╝
+
+${light_blue}
+███╗   ███╗██╗███╗   ██╗██╗███╗   ██╗ ██████╗ 
+${blue}████╗ ████║██║████╗  ██║██║████╗  ██║██╔════╝ 
+${cyan}██╔████╔██║██║██╔██╗ ██║██║██╔██╗ ██║██║  ███╗
+${teal}██║╚██╔╝██║██║██║╚██╗██║██║██║╚██╗██║██║   ██║
+${green}██║ ╚═╝ ██║██║██║ ╚████║██║██║ ╚████║╚██████╔╝
+╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝ 
 ${reset}
 
-${cyan}Welcome to AGENTIC DOC Setup${reset}
-${teal}-------------------------------${reset}
+${cyan}Welcome to AGENTIC DOC MINING Setup${reset}
+${teal}-----------------------------------${reset}
 
 This script will guide you through setting up the agentic document processing pipeline.
 It will install Python 3.12, set up Prefect, and configure the Landing AI agentic-doc package.
