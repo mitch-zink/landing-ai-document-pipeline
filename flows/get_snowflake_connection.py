@@ -1,21 +1,20 @@
 from prefect import get_run_logger
 from prefect_snowflake import SnowflakeCredentials, SnowflakeConnector
+import snowflake.connector
 import base64
 from typing import Optional
-
-import snowflake.connector
 
 
 def get_snowflake_connector(
     warehouse: str = "PREFECT_WH",
     database: Optional[str] = "ai",
     schema: Optional[str] = "AGENTIC_DOC_EXTRACTION",
-) -> SnowflakeConnector:
+):
     """
     Returns a SnowflakeConnector object for use with Prefect and DBT.
     """
     # Get the Prefect logger
-    get_run_logger()
+    logger = get_run_logger()
 
     # Load the Snowflake credentials from the Prefect block
     credentials = SnowflakeCredentials.load("snowflake-credentials-key-auth")
@@ -36,7 +35,7 @@ def get_snowflake_connection(
     warehouse: str = "PREFECT_WH",
     database: Optional[str] = "ai",
     schema: Optional[str] = "AGENTIC_DOC_EXTRACTION",
-) -> snowflake.connector.SnowflakeConnection:
+):
     """
     Establishes a connection to Snowflake and returns the connection object.
     """
@@ -64,8 +63,7 @@ def get_snowflake_connection(
             autocommit=True,
         )
         logger.info(
-            f"✅ Successfully connected to Snowflake | Database: {database} | "
-            f"Schema: {schema} | Warehouse: {warehouse}"
+            f"✅ Successfully connected to Snowflake | Database: {database} | Schema: {schema} | Warehouse: {warehouse}"
         )
         return conn
     except Exception as e:
