@@ -10,7 +10,7 @@ from prefect_snowflake.database import SnowflakeConnector
 from prefect_snowflake.credentials import SnowflakeCredentials
 from prefect.blocks.system import Secret
 
-def create_aws_credentials(access_key_id, secret_access_key, bucket_name):
+def create_aws_credentials(access_key_id: str, secret_access_key: str, bucket_name: str) -> bool:
     """Create AWS credentials and S3 bucket blocks."""
     try:
         # Create AWS credentials block
@@ -38,7 +38,14 @@ def create_aws_credentials(access_key_id, secret_access_key, bucket_name):
         print(f"✗ Error creating AWS blocks: {str(e)}")
         return False
 
-def create_snowflake_connector(user, private_key_path, account, database="ai", schema="AGENTIC_DOC_EXTRACTION", warehouse="PREFECT_WH"):
+def create_snowflake_connector(
+    user: str,
+    private_key_path: str,
+    account: str,
+    database: str = "ai",
+    schema: str = "AGENTIC_DOC_EXTRACTION",
+    warehouse: str = "PREFECT_WH",
+) -> bool:
     """Create Snowflake connector block using private key authentication."""
     try:
         # Read private key file
@@ -68,7 +75,7 @@ def create_snowflake_connector(user, private_key_path, account, database="ai", s
         print(f"✗ Error creating Snowflake connector block: {str(e)}")
         return False
 
-def create_secret_block(name, value):
+def create_secret_block(name: str, value: str) -> bool:
     """Create a secret block."""
     try:
         secret_block = Secret(value=value)
@@ -79,10 +86,14 @@ def create_secret_block(name, value):
         print(f"✗ Error creating secret block '{name}': {str(e)}")
         return False
 
-def main():
+def main() -> None:
     """Main setup function."""
     if len(sys.argv) != 8:
-        print("Usage: python setup_blocks.py <aws_access_key> <aws_secret_key> <sf_user> <sf_private_key_path> <sf_account> <landing_ai_key> <s3_bucket_name>")
+        print(
+            "Usage: python setup_blocks.py <aws_access_key> <aws_secret_key> "
+            "<sf_user> <sf_private_key_path> <sf_account> <landing_ai_key> "
+            "<s3_bucket_name>"
+        )
         sys.exit(1)
     
     aws_access_key = sys.argv[1]
