@@ -1,4 +1,4 @@
-"""Agentic Document Processing Pipeline using Landing AI's agentic-doc package"""
+"""Agentic Document Processing Pipeline using Landing AI's agentic API"""
 
 DEPLOY_MODE = False  # Set to False to run directly, True to deploy
 
@@ -216,7 +216,7 @@ def process_document(aws_credentials: S3Bucket, file_key: str) -> None:
 
 @flow(
     name="Agentic Document Processing",
-    description="Process documents from S3 using Landing AI's agentic-doc package and store in Snowflake"
+    description="Process documents from S3 using Landing AI's agentic API and store in Snowflake"
 )
 def s3_to_snowflake_flow():
     """Main flow: S3 → Landing AI → Snowflake."""

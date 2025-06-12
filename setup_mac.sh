@@ -33,7 +33,7 @@ ${cyan}Welcome to AGENTIC DOC MINING Setup${reset}
 ${teal}-----------------------------------${reset}
 
 This script will guide you through setting up the agentic document processing pipeline.
-It will install Python 3.12, set up Prefect, and configure the Landing AI agentic-doc package.
+It will install Python 3.12, set up Prefect, and configure the Landing AI agentic API.
 
 ${red}Note: This script requires Homebrew to be installed on your system.${reset}
 "

@@ -1,10 +1,10 @@
 # Landing AI Document Intelligence Pipeline
 
-Production-ready pipeline for transforming unstructured documents into structured, queryable data using Landing AI's agentic-doc package. Automatically processes documents from S3 and loads the parsed content into Snowflake.
+Production-ready pipeline for transforming unstructured documents into structured, queryable data using Landing AI's agentic API. Automatically processes documents from S3 and loads the parsed content into Snowflake.
 
 ## 🤖 Why Agentic Document AI?
 
-Landing AI's agentic-doc package uses autonomous AI that adapts to any document type without templates:
+Landing AI's agentic API uses autonomous AI that adapts to any document type without templates:
 
 - **Contextual Understanding**: Comprehends document structure and relationships between elements
 - **Semantic Chunking**: Intelligently segments content into meaningful units with spatial coordinates
@@ -58,7 +58,7 @@ The setup script will:
 
 - Install Python 3.12 via Homebrew
 - Create and activate a virtual environment
-- Install all required dependencies including Landing AI's agentic-doc package
+- Install all required dependencies including Landing AI's agentic API
 - Configure Prefect for local orchestration
 - Create secure credential blocks for AWS, Snowflake, and Landing AI
 - Deploy the document processing pipeline with hourly scheduling
