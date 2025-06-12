@@ -15,7 +15,7 @@ Landing AI's agentic API uses autonomous AI that adapts to any document type wit
 
 ```
 S3 Documents → Landing AI Agentic API → Structured JSON → Snowflake
-     ↑                                                        ↓
+     ↓                                                       ↑ 
      └──────────── Prefect Orchestration (Hourly) ───────────┘
 ```
 
