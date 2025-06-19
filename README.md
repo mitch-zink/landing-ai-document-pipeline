@@ -29,14 +29,7 @@ S3 Documents → Landing AI Agentic API → Structured JSON → Snowflake
 
 ## 🚀 Quick Start
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/ai-document-extraction-pipeline.git
-cd ai-document-extraction-pipeline
-```
-
-### 2. Set Environment Variables
+### 1. Set Environment Variables
 
 ```bash
 export AWS_ACCESS_KEY_ID="your-aws-access-key"
@@ -48,7 +41,7 @@ export LANDING_AI_API_KEY="your-landing-ai-api-key"
 export S3_BUCKET_NAME="your-s3-bucket-name"
 ```
 
-### 3. Run Automated Setup
+### 2. Run Automated Setup
 
 ```bash
 ./setup_mac.sh
